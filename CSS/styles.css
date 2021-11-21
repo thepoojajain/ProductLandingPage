@@ -15,22 +15,36 @@ body {
   color: #212121;
   line-height: 1.5;
   font-size: 2rem;
-  margin: 1rem 5rem;
+  background-color: #eee;
 }
 
 /* header*/
-#header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #eee;
 }
 
+.landing-page {
+  max-width: 100rem;
+  margin: 10rem auto 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .landing-page {
+    margin-top: 15rem;
+  }
+}
 /* Logo*/
-#header-img {
+.header-img {
   width: 30rem;
   height: 3rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 /* Navigation bar*/
@@ -52,22 +66,22 @@ li {
   white-space: nowrap;
 }
 
-#nav-bar .list {
+.nav-bar .list {
   display: flex;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
-#nav-link {
+.nav-link {
   font-weight: 400;
 }
 
 @media screen and (max-width: 768px) {
-  #header {
+  .header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #nav-bar .list {
+  .nav-bar .list {
     flex-direction: column;
   }
   .list li {
@@ -76,20 +90,27 @@ li {
 }
 
 /*form*/
-#landing-page {
+form {
+  margin: 0 auto;
+}
+.landing-page {
   text-align: center;
 }
 
-#landing__heading {
+.landing__heading {
   margin-bottom: 2rem;
   white-space: nowrap;
 }
-#email {
+
+.email {
   padding: 1rem;
-  width: 30rem;
+  width: 100%;
+  max-width: 275px;
+  border: 1px solid lightgrey;
+  margin: auto;
 }
 
-#submit {
+.submit {
   display: block;
   margin: 2rem auto;
   text-transform: uppercase;
@@ -102,8 +123,17 @@ li {
   text-align: center;
 }
 
-#submit:hover {
+.submit:hover {
   background-color: #e6e200;
+}
+
+@media screen and (max-width: 500px) {
+  .email::-webkit-input-placeholder {
+    font-size: 1.5rem;
+  }
+  .landing__heading {
+    white-space: normal;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -117,7 +147,7 @@ li {
 /*grid*/
 .grid {
   display: grid;
-  margin: 3rem 10rem;
+  margin: 3rem auto;
 }
 .grid__icon {
   display: none;
@@ -157,19 +187,50 @@ li {
 /*video*/
 
 iframe {
-  width: 550px;
-  height: 250px;
   border: none;
+  margin: 0 auto;
 }
 
-.card {
-  border: 1px solid #000;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  iframe {
+    width: 80vw;
+    height: 35vh;
+  }
 }
 
-.card__header {
-  background: #e0e0e0;
-  padding: 1rem 3rem;
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  iframe {
+    width: 70vw;
+    height: 45vh;
+  }
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  iframe {
+    width: 60vw;
+    height: 50vh;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  iframe {
+    width: 60vw;
+    height: 50vh;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  iframe {
+    width: 39vw;
+    height: 40vh;
+  }
+}
+/*cards*/
 
 h1,
 h2,
@@ -179,13 +240,22 @@ h3 {
 
 .cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-content: center;
 }
 
 .card {
+  border: 1px solid #000;
   width: 100%;
   margin: 5rem 2rem;
+  max-width: 300px;
 }
+
+.card__header {
+  background: #e0e0e0;
+  padding: 1rem 3rem;
+}
+
 .card__body {
   display: flex;
   flex-direction: column;
@@ -194,18 +264,23 @@ h3 {
   padding: 2rem 3rem;
 }
 
-.card__body #submit {
+.card__body .submit {
   font-weight: 300;
   padding: 1rem 2rem;
+}
+
+.card__body ul {
+  padding-left: 0;
 }
 
 @media screen and (max-width: 768px) {
   .cards {
     flex-direction: column;
+    margin: 1rem auto;
   }
 
   .card {
-    margin: 1rem 0;
+    margin: 1rem auto;
   }
 }
 /*footer*/
@@ -231,4 +306,15 @@ h3 {
 
 .footer__list li {
   padding: 0 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .footer__list li {
+    padding: 0 0.5rem;
+    font-size: 1.7rem;
+  }
+  .footer .copyright {
+    font-size: 1.5rem;
+    opacity: 0.6;
+  }
 }
